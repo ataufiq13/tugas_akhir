@@ -18,6 +18,6 @@ class Pesanan extends Model
 
     public function jenis()
     {
-        return $this->hasOne(Jenis::class);
+        return $this->belongsTo(Jenis::class);
     }
 }

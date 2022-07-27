@@ -16,6 +16,7 @@ class CreateTrackingsTable extends Migration
         Schema::create('trackings', function (Blueprint $table) {
             $table->id();
             $table->string('proses');
+            $table->string('deskripsi');
             $table->unsignedBigInteger('jenis_id');
             $table->timestamps();
         });

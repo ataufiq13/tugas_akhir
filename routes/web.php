@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TrackingController;
 use App\Http\Controllers\Pimpinan\LaporanController;
 use App\Http\Controllers\User\PesananController as PesananControllerUser;
-use App\Http\Controllers\Admin\PesananController as PesananControllerAdmin;
+use App\Http\Controllers\Admin\PesananController;
 use App\Http\Controllers\Pimpinan\PesananController as PesananControllerPimpinan;
 
 /*
@@ -44,13 +44,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
 });
 
+Route::prefix('product')->middleware([Admin::class, 'auth'])->group(function () {
+});
+
 Route::middleware([Admin::class, 'auth'])->group(function () {
-    Route::prefix('product')->group(function () {
-        Route::resource('product', ProductController::class);
-        Route::resource('jenis', JenisController::class);
-    });
+    Route::resource('product', ProductController::class);
+    Route::resource('jenis', JenisController::class);
     Route::resource('tracking', TrackingController::class);
-    Route::resource('pesanan', PesananControllerAdmin::class);
+    Route::resource('pesanan-admin', PesananController::class);
+    Route::get('pesanan-admin/tracking/{id}', [PesananController::class, 'tracking'])->name('show-tracking');
 });
 
 Route::prefix('user')->middleware([User::class, 'auth'])->group(function () {
@@ -59,7 +61,7 @@ Route::prefix('user')->middleware([User::class, 'auth'])->group(function () {
 
 Route::prefix('pimpinan')->middleware([Pimpinan::class, 'auth'])->group(function () {
     Route::resource('pesanan', PesananControllerPimpinan::class);
-    Route::resource('pesanan', LaporanController::class);
+    Route::resource('laporan', LaporanController::class);
 });
 
 

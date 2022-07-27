@@ -17,11 +17,13 @@ class TrackingSeeder extends Seeder
         for ($i = 1; $i < 8; $i++) {
             Tracking::create([
                 'proses' => 'Proses Cetak',
+                'deskripsi' => 'Pesanan anda sedang dicetak oleh tim kami',
                 'jenis_id' => $i
             ]);
 
             Tracking::create([
                 'proses' => 'Selesai',
+                'deskripsi' => 'Pesanan anda sudah selesai dan siap diambil',
                 'jenis_id' => $i
             ]);
         }
@@ -32,16 +34,19 @@ class TrackingSeeder extends Seeder
         for ($i = 8; $i < 11; $i++) {
             Tracking::create([
                 'proses' => 'Proses Cetak',
+                'deskripsi' => 'Pesanan anda sedang dicetak oleh tim kami',
                 'jenis_id' => $i
             ]);
 
             Tracking::create([
                 'proses' => 'Cutting',
+                'deskripsi' => 'Pesanan anda sedang proses pemotongan',
                 'jenis_id' => $i
             ]);
 
             Tracking::create([
                 'proses' => 'Selesai',
+                'deskripsi' => 'Pesanan anda sudah selesai dan siap diambil',
                 'jenis_id' => $i
             ]);
         }

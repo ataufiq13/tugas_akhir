@@ -20,8 +20,8 @@ class CreatePesanansTable extends Migration
             $table->integer('satuan');
             $table->integer('total_bayar');
             $table->string('status');
-            $table->string('tracking');
-            $table->string('bukti_bayar');
+            $table->string('tracking')->nullable();
+            $table->string('bukti_bayar')->nullable();
             $table->unsignedBigInteger('jenis_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

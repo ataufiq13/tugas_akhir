@@ -49,7 +49,7 @@ class ProductController extends Controller
 
         Product::create($validated);
 
-        return redirect('product/jenis')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect('jenis')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -93,7 +93,7 @@ class ProductController extends Controller
         Product::where('id', $id)
             ->update($validated);
 
-        return redirect('product/jenis')->with('success', 'Data Berhasil Diubah');
+        return redirect('jenis')->with('success', 'Data Berhasil Diubah');
     }
 
     /**
@@ -106,6 +106,6 @@ class ProductController extends Controller
     {
         $data = Product::find($id);
         $data->delete();
-        return redirect('product/jenis')->with('success', 'Data Berhasil Dihapus');
+        return redirect('jenis')->with('success', 'Data Berhasil Dihapus');
     }
 }

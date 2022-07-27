@@ -13,7 +13,7 @@ class Jenis extends Model
 
     public function pesanan()
     {
-        return $this->belongsTo(Pesanan::class);
+        return $this->hasMany(Pesanan::class);
     }
 
     public function product()

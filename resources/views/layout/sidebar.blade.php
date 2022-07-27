@@ -20,44 +20,43 @@
             <span class="link-title">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item {{ active_class(['product/*']) }}">
+        <li class="nav-item {{ active_class(['product/*', 'jenis', 'jenis/*']) }}">
           <a class="nav-link" data-toggle="collapse" href="#product" role="button"
             aria-expanded="{{ is_active_route(['product/*']) }}" aria-controls="product">
             <i class="link-icon" data-feather="shopping-bag"></i>
             <span class="link-title">Product</span>
             <i class="link-arrow" data-feather="chevron-down"></i>
           </a>
-          <div class="collapse {{ show_class(['product/*']) }}" id="product">
+          <div class="collapse {{ show_class(['product/*', 'jenis', 'jenis/*']) }}" id="product">
             <ul class="nav sub-menu">
               <li class="nav-item">
-                <a href="{{ route('jenis.index') }}" class="nav-link {{ active_class(['product/jenis']) }}">Data
+                <a href="{{ route('jenis.index') }}" class="nav-link {{ active_class(['jenis']) }}">Data
                   Jenis
                   Product</a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('jenis.create') }}"
-                  class="nav-link {{ active_class(['product/jenis/create']) }}">Tambah
+                <a href="{{ route('jenis.create') }}" class="nav-link {{ active_class(['jenis/create']) }}">Tambah
                   Jenis Product</a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('product.create') }}"
-                  class="nav-link {{ active_class(['product/product/create']) }}">Tambah
+                <a href="{{ route('product.create') }}" class="nav-link {{ active_class(['product/create']) }}">Tambah
                   Product</a>
               </li>
             </ul>
           </div>
         </li>
-        <li class="nav-item {{ active_class(['tracking/*']) }}">
+        <li class="nav-item {{ active_class(['tracking/*', 'tracking']) }}">
           <a class="nav-link" data-toggle="collapse" href="#tracking" role="button"
             aria-expanded="{{ is_active_route(['tracking/*']) }}" aria-controls="tracking">
             <i class="link-icon" data-feather="loader"></i>
             <span class="link-title">Tracking</span>
             <i class="link-arrow" data-feather="chevron-down"></i>
           </a>
-          <div class="collapse {{ show_class(['tracking/*']) }}" id="tracking">
+          <div class="collapse {{ show_class(['tracking/*', 'tracking']) }}" id="tracking">
             <ul class="nav sub-menu">
               <li class="nav-item">
-                <a href="{{ route('tracking.index') }}" class="nav-link {{ active_class(['tracking']) }}">Data
+                <a href="{{ route('tracking.index') }}"
+                  class="nav-link {{ active_class(['tracking', 'tracking/*']) }}">Data
                   Tracking Product</a>
               </li>
               <li class="nav-item">
@@ -68,22 +67,23 @@
             </ul>
           </div>
         </li>
-        <li class="nav-item {{ active_class(['pesanan/*']) }}">
-          <a class="nav-link" data-toggle="collapse" href="#pesanan" role="button"
-            aria-expanded="{{ is_active_route(['pesanan/*']) }}" aria-controls="pesanan">
+        <li class="nav-item {{ active_class(['pesanan-admin/*', 'pesanan-admin']) }}">
+          <a class="nav-link" data-toggle="collapse" href="#pesanan-admin" role="button"
+            aria-expanded="{{ is_active_route(['pesanan-admin/*']) }}" aria-controls="pesanan-admin">
             <i class="link-icon" data-feather="shopping-cart"></i>
             <span class="link-title">Pesanan</span>
             <i class="link-arrow" data-feather="chevron-down"></i>
           </a>
-          <div class="collapse {{ show_class(['pesanan/*']) }}" id="pesanan">
+          <div class="collapse {{ show_class(['pesanan-admin/*', 'pesanan-admin']) }}" id="pesanan-admin">
             <ul class="nav sub-menu">
               <li class="nav-item">
-                <a href="{{ route('pesanan.index') }}" class="nav-link {{ active_class(['pesanan']) }}">Data
+                <a href="{{ route('pesanan-admin.index') }}"
+                  class="nav-link {{ active_class(['pesanan-admin', 'pesanan-admin/*']) }}">Data
                   Pesanan</a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('pesanan.create') }}"
-                  class="nav-link {{ active_class(['pesanan/create']) }}">Tambah
+                <a href="{{ route('pesanan-admin.create') }}"
+                  class="nav-link {{ active_class(['pesanan-admin/create']) }}">Tambah
                   Pesanan</a>
               </li>
             </ul>
@@ -136,7 +136,7 @@
           </a>
         </li>
       @endif
-      <li class="nav-item nav-category">Main</li>
+      <!-- <li class="nav-item nav-category">Main</li>
       <li class="nav-item {{ active_class(['/']) }}">
         <a href="{{ url('/') }}" class="nav-link">
           <i class="link-icon" data-feather="box"></i>
@@ -341,24 +341,21 @@
         <div class="collapse {{ show_class(['charts/*']) }}" id="charts">
           <ul class="nav sub-menu">
             <li class="nav-item">
-              <a href="{{ url('/charts/apex') }}"
-                class="nav-link {{ active_class(['charts/apex']) }}">Apex</a>
+              <a href="{{ url('/charts/apex') }}" class="nav-link {{ active_class(['charts/apex']) }}">Apex</a>
             </li>
             <li class="nav-item">
               <a href="{{ url('/charts/chartjs') }}"
                 class="nav-link {{ active_class(['charts/chartjs']) }}">ChartJs</a>
             </li>
             <li class="nav-item">
-              <a href="{{ url('/charts/flot') }}"
-                class="nav-link {{ active_class(['charts/flot']) }}">Flot</a>
+              <a href="{{ url('/charts/flot') }}" class="nav-link {{ active_class(['charts/flot']) }}">Flot</a>
             </li>
             <li class="nav-item">
               <a href="{{ url('/charts/morrisjs') }}"
                 class="nav-link {{ active_class(['charts/morrisjs']) }}">MorrisJs</a>
             </li>
             <li class="nav-item">
-              <a href="{{ url('/charts/peity') }}"
-                class="nav-link {{ active_class(['charts/peity']) }}">Peity</a>
+              <a href="{{ url('/charts/peity') }}" class="nav-link {{ active_class(['charts/peity']) }}">Peity</a>
             </li>
             <li class="nav-item">
               <a href="{{ url('/charts/sparkline') }}"
@@ -405,8 +402,8 @@
                 class="nav-link {{ active_class(['icons/flag-icons']) }}">Flag Icons</a>
             </li>
             <li class="nav-item">
-              <a href="{{ url('/icons/mdi-icons') }}"
-                class="nav-link {{ active_class(['icons/mdi-icons']) }}">Mdi Icons</a>
+              <a href="{{ url('/icons/mdi-icons') }}" class="nav-link {{ active_class(['icons/mdi-icons']) }}">Mdi
+                Icons</a>
             </li>
           </ul>
         </div>
@@ -490,7 +487,7 @@
           <i class="link-icon" data-feather="hash"></i>
           <span class="link-title">Documentation</span>
         </a>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
